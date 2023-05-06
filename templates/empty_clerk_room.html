@@ -1,0 +1,60 @@
+{% extends "municipal_layout.html" %}
+{% block title %}Main corridor{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .bg {
+        /* The image used */
+        background-image: url("{{ url_for('static', filename='img/utility_room.jpg') }}");
+    
+        /* Full height */
+        
+        height: 768px;
+        width: 1152px;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .passive_collors{
+        background-color: #184d1877;
+        color: #fff;
+      }
+      .back_button{
+        background-color: #60586955
+      }
+      .into_button{
+        background-color: #f5c842aa
+      }
+  </style>
+{% endblock %}
+{% block content %}
+<script>
+  $(document).ready(function(){
+    $('#initModal').show();
+})
+
+function goBack(){
+    window.location.href = "{{url_for('index')}}";
+}
+</script>
+
+  <div class="modal" tabindex="-1" id="initModal">
+    <div class="modal-dialog">
+      <div class="modal-content passive_collors">
+        <div class="modal-header">
+          <h5 class="modal-title">Кабинет</h5>
+        </div>
+        <div class="modal-body">
+          <p>Комната какого-то служки из муниципалитета. Ничего интересного.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary back_button" data-bs-dismiss="modal" onclick="goBack()">Уйти</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

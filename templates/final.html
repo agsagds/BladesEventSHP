@@ -1,0 +1,30 @@
+{% extends "swarm_layout.html" %}
+{% block title %}Main corridor{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+
+    .bg {
+        /* The image used */
+        background-image: url("{{ url_for('static', filename='img/final_art.jpg') }}");
+    
+        /* Full height */
+        
+        height: 878px;
+        width: 1600px;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+  </style>
+{% endblock %}
+{% block content %}
+
+<div class="bg">
+</div>
+
+
+
+{% endblock %}

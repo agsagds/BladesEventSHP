@@ -1,0 +1,57 @@
+{% extends "swarm_layout.html" %}
+{% block title %}Main corridor{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+
+    .bg {
+        /* The image used */
+        background-image: url("{{ url_for('static', filename='img/swarm.jpg') }}");
+    
+        /* Full height */
+        
+        height: 878px;
+        width: 1600px;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .question{
+        margin: 30px;
+        color: #fff;
+      }
+  </style>
+{% endblock %}
+{% block content %}
+
+<script type="text/javascript">
+    function submit() {
+        const ans=$('#ans').value;
+        window.location.href = "{{url_for('check_swarm', value=ans)}}";
+    }
+</script>
+
+<div class="bg">
+    <span class="placeholder col-12"></span>
+    <div class="question"><p>{{ question }}</p></div>
+    <span class="placeholder col-12 bg-primary"></span>
+    <span class="placeholder col-12 bg-secondary"></span>
+    <span class="placeholder col-12 bg-success"></span>
+    <span class="placeholder col-12 bg-danger"></span>
+    <span class="placeholder col-12 bg-warning"></span>
+    <span class="placeholder col-12 bg-info"></span>
+    <span class="placeholder col-12 bg-light"></span>
+    <span class="placeholder col-12 bg-dark"></span>
+    {% if is_leader %}
+        <input type="input" value="0" id="ans">
+        <button type="button" class="btn btn-primary btn-lg placeholder col-4" onclick="submit()">Изречь</button>
+    {% else %}
+        <a class="btn btn-primary disabled placeholder col-4"></a>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}

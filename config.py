@@ -6,4 +6,4 @@ KEY_4 = '9881'
 SWARM_ANSWERS = ['ans1', 'ans2', 'ans3']
 SWARM_QUESTIONS = ['questions1', 'questions2', 'questions3']
 
-TEAM_SIZE = 10
+TEAM_SIZE = 1

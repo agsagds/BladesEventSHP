@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='jquery-dev-3.6.3.js') }}"></script>
+    <title>{% block title %}{% endblock %} Вне купола</title>
+    {% endblock %}
+  </head>
+  <body class="body-swarm">
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}{% endblock %}
+    </div>
+  </body>
+</html>

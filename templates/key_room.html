@@ -1,0 +1,141 @@
+{% extends "municipal_layout.html" %}
+{% block title %}Main corridor{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+
+    .bg {
+        /* The image used */
+        background-image: url("{{ url_for('static', filename='img/door.jpg') }}");
+    
+        /* Full height */
+        
+        height: 768px;
+        width: 1152px;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .left-rune{
+        margin-left: 80px;
+        padding-top: 180px;
+        float: left;
+        width: 75px;
+      }
+      .right-rune{
+        margin-left: 1000px;
+        padding-top: 180px;
+        width: 75px;
+      }
+      .rune{
+        height: 100px;
+        margin-top: 10px;
+      }
+      .nums{
+        float: left;
+        margin-left: 340px;
+        padding-top: 300px;
+        
+        width: 300px;
+      }
+
+      .custom-range::-webkit-slider-thumb {
+        background: brown;
+      }
+      
+      .custom-range::-moz-range-thumb {
+        background: brown;
+      }
+      
+      .custom-range::-ms-track {
+        background: #e6ccb3;
+      }
+
+      .custom-range::-webkit-slider-track {
+        background: #e6ccb3;
+      }
+      
+      .custom-range::-moz-range-track {
+        background: #e6ccb3;
+      }
+      
+      .custom-range::-ms-thumb {
+        background: brown;
+      }
+  </style>
+{% endblock %}
+{% block content %}
+
+<div class="bg">
+    <div class="left-rune">
+        <div class="rune">
+        {% if bulls>0 %}
+            <img src="{{ url_for('static', filename='img/crune_1.png') }}">
+        {% endif %}
+        </div>
+        <div class="rune">
+        {% if bulls>1 %}
+            <img src="{{ url_for('static', filename='img/crune_2.png') }}">
+        {% endif %} 
+        </div>
+        <div class="rune">
+        {% if bulls>2 %}
+            <img src="{{ url_for('static', filename='img/crune_3.png') }}">
+
+        {% endif %}
+        </div>
+        <div class="rune">
+        {% if bulls>3 %}
+            <img src="{{ url_for('static', filename='img/crune_4.png') }}">
+        
+        {% endif %}
+        </div>
+    </div>
+    <div class="nums">
+        <form method="post" action="{{ url_for(path) }}">
+        <input type="range" class="form-range custom-range" min="0" max="9" value="0" id="num1" name="num0">
+        <input type="range" class="form-range custom-range" min="0" max="9" value="0" id="num2" name="num1">
+        <input type="range" class="form-range custom-range" min="0" max="9" value="0" id="num3" name="num2">
+        <input type="range" class="form-range custom-range" min="0" max="9" value="0" id="num4" name="num3">
+        <input type="image" id="submit" alt="Try open"
+            src="{{ url_for('static', filename='img/lock.png') }}"
+            style="margin-left: 305px; height: 40px; margin-top: 30px;"
+            >
+        </form>
+    </div>
+    <div class="right-rune">
+        <div class="rune">
+        {% if cows>3 %}
+            <img src="{{ url_for('static', filename='img/brune_1.png') }}">
+
+        {% endif %}
+        </div>   
+        <div class="rune">     
+        {% if cows>2 %}
+            <img src="{{ url_for('static', filename='img/brune_2.png') }}">
+
+        {% endif %}
+        </div>   
+        <div class="rune">     
+        {% if cows>1 %}
+            <img src="{{ url_for('static', filename='img/brune_3.png') }}">
+
+        {% endif %}
+        </div>    
+        <div class="rune">    
+        {% if cows>0 %}
+            <img src="{{ url_for('static', filename='img/brune_4.png') }}">
+
+        {% endif %}
+        </div>        
+    </div>
+    <div></div>
+    <div></div>
+</div>
+
+
+
+{% endblock %}

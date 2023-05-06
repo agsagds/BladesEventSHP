@@ -1,0 +1,49 @@
+{% extends "municipal_layout.html" %}
+{% block title %}Main corridor{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+
+    .bg {
+        /* The image used */
+        background-image: url("{{ url_for('static', filename='img/coridor.jpg') }}");
+    
+        /* Full height */
+        
+        height: 768px;
+        width: 1152px;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+  </style>
+{% endblock %}
+{% block content %}
+
+
+
+<div id="coridor" class="bg">
+</div>
+
+
+<script>
+  $('#coridor').click(function (event) {
+    var x = event.pageX - this.offsetLeft;
+    var y = event.pageY - this.offsetTop;
+    if(x>=100 && x<=160 && y>=150 && y<=660){
+      window.location.href = "{{url_for('room', room_id=1)}}";
+    }
+    else if(x>=980 && y>=235){
+      window.location.href = "{{url_for('room', room_id=2)}}";
+    }
+    else if(x>=650 && x<=715 && y>=280 && y<=560){
+      window.location.href = "{{url_for('room', room_id=9)}}";
+    }
+    else if(x>=465 && x<=540 && y>=380 && y<=490){
+      window.location.href = "{{url_for('room', room_id=7)}}";
+    }
+});
+</script>
+{% endblock %}

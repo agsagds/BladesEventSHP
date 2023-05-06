@@ -1,0 +1,86 @@
+{% extends "municipal_layout.html" %}
+{% block title %}Main corridor{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .bg {
+        /* The image used */
+        background-image: url("{{ url_for('static', filename='img/utility_room.jpg') }}");
+    
+        /* Full height */
+        
+        height: 768px;
+        width: 1152px;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .passive_collors{
+        background-color: #ee446677;
+        color: #fff;
+      }
+      .back_button{
+        background-color: #60586955
+      }
+      .into_button{
+        background-color: #f53842aa
+      }
+  </style>
+{% endblock %}
+{% block content %}
+<script>
+  $(document).ready(function(){
+    $('#initModal').show();
+})
+
+function goInto(){
+    var audio = new Audio("{{ url_for('static', filename='sound/step_noizes.mp3') }}");
+    audio.play();
+    $('#initModal').hide();
+    $('#windowModal').show();
+}
+
+function goBack(){
+    window.location.href = "{{url_for('index')}}";
+}
+</script>
+
+  <div class="modal" tabindex="-1" id="initModal">
+    <div class="modal-dialog">
+      <div class="modal-content passive_collors">
+        <div class="modal-header">
+          <h5 class="modal-title">Портьера</h5>
+        </div>
+        <div class="modal-body">
+          <p>Здесь довольно много вещей на пути, вы рискуете нашуметь...</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary back_button" data-bs-dismiss="modal" onclick="goBack()">Уйти</button>
+            <button type="button" class="btn btn-secondary into_button" data-bs-dismiss="modal" onclick="goInto()">Попытаться подойти поближе</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div class="modal" tabindex="-1" id="windowModal">
+    <div class="modal-dialog">
+      <div class="modal-content passive_collors">
+        <div class="modal-header">
+          <h5 class="modal-title">Окно</h5>
+        </div>
+        <div class="modal-body">
+          <p>Вы пробираетесь завалы вещей, мешков и мусора. За портьерой оказывается окно. Лучше не маячить здесь.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary back_button" data-bs-dismiss="modal" onclick="goBack()">Уйти</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
