@@ -3,7 +3,9 @@ KEY_2 = '3455'
 KEY_3 = '3651'
 KEY_4 = '9881'
 
-SWARM_ANSWERS = ['ans1', 'ans2', 'ans3']
-SWARM_QUESTIONS = ['questions1', 'questions2', 'questions3']
+SWARM_QUESTIONS = ['>>>++<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.',
+                  'print(len("print(101111+22222222)")*(-5)//10+123456)', 'Where is transoprt?']
+SWARM_ANSWERS = ['W',
+                    '123445', 'east']
 
-TEAM_SIZE = 1
+TEAM_SIZE = 10

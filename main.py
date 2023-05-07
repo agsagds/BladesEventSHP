@@ -96,7 +96,7 @@ def check_key_3():
     key = [request.form.get(f'num{i}', default_value) for i in nums]
     if ''.join(key)==cfg.KEY_3:
         return redirect(url_for('room', room_id=10))
-    bulls, cows = get_bulls_and_cows(ans=cfg.KEY_1, value=key)
+    bulls, cows = get_bulls_and_cows(ans=cfg.KEY_3, value=key)
     return render_template('key_room.html', bulls=bulls, cows=cows, path="check_key_3")
 
 
@@ -142,7 +142,7 @@ def get_swarm_stage():
     return jsonify({'stage': swarm_stage})
 
 
-@app.route("/check_swarm<string:value>")
+@app.route("/check_swarm<string:value>") # TODO: fix this
 def check_swarm(value):
     if value==cfg.SWARM_ANSWERS[swarm_stage]:
         swarm_stage += 1
